@@ -73,4 +73,27 @@ print("\nDataset after handling missing values:")
 print(iris_dataset.head())
 
 
-    
+# Implements a simple classification model using logistic regression from Scikit-learn:
+
+#   + Splits the dataset into training and testing sets.
+#   Trains the model and evaluates it using accuracy.
+
+
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, classification_report
+
+X = iris_dataset.iloc[:, :-1]
+y = iris_dataset['species']
+
+#training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+model = LogisticRegression(max_iter=100)
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test) 
+print("\nAccuracy:", accuracy_score(y_test, y_pred))
+
+print("\nClassification Report:")
+print(classification_report(y_test, y_pred))
