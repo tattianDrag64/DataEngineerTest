@@ -10,27 +10,49 @@
 
 # Write a Python script that:
 
-#   Loads the Iris dataset into a Pandas DataFrame.
-#   Performs basic exploratory data analysis (EDA), including:
-#   Summary statistics for each feature (mean, median, standard deviation).
+import pandas as pd 
+import numpy as np
 
-#   The count of unique values in the "species" column.
+#   + Loads the Iris dataset into a Pandas DataFrame.
+
+url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data" 
+table_col = ["sepal_length", "sepal_width", "petal_length", "petal_width", "species"] 
+iris_dataset = pd.read_csv(url, header=None, names=table_col)
+
+
+#   + Performs basic exploratory data analysis (EDA), including:
+#   + Summary statistics for each feature (mean, median, standard deviation).
+
+
+print("First 5 rows of the dataset:")
+print(iris_dataset.head())
+
+print("\nStatistics for num colums:")
+print(iris_dataset.describe())
+
+mean_values = iris_dataset.iloc[:, :-1].mean()
+std_values = iris_dataset.iloc[:, :-1].std()
+
+print("\nMean values for numeric columns:")
+print(mean_values)
+
+print("\nStandard deviation for numeric columns:")
+print(std_values)
+
+median_values = iris_dataset.iloc[:, :-1].median()
+
+print("\nMedian values for numeric columns:")
+print(median_values)
+
+# The count of unique values in the "species" column.
+
+print("\nNumber of unique values in the 'species' column:")
+print(iris_dataset['species'].value_counts())
+
 #   Generates a histogram for one numeric feature and a scatter plot comparing two features.
 
-#   Identifies and handles any missing values in the dataset (even if simulated by altering the dataset).
+import matplotlib.pyplot as plt
+import seaborn as sns 
 
-#   Implements a simple classification model using logistic regression from Scikit-learn:
 
-#   Splits the dataset into training and testing sets.
-#   Trains the model and evaluates it using accuracy.
-
-# Deliverable:
-
-#   Python script (.py or .ipynb).
-#   Charts embedded as part of the code output.
-
-# Evaluation Criteria:
-
-#   Code structure and readability.
-#   Correct implementation of EDA, plots, and handling missing data.
-#   Basic understanding of machine learning concepts.
+    
