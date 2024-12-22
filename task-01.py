@@ -54,5 +54,15 @@ print(iris_dataset['species'].value_counts())
 import matplotlib.pyplot as plt
 import seaborn as sns 
 
+sns.histplot(iris_dataset['sepal_length'], kde = True)
+plt.title('Histogram of Sepal Length')
+plt.show()
+
+sns.scatterplot(x='sepal_length', y='petal_length', hue='species', data=iris_dataset)
+plt.title('Scatter Plot: Sepal Length vs Petal Length')
+plt.show()
+
+
+
 
     
