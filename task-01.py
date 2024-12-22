@@ -94,6 +94,3 @@ model.fit(X_train, y_train)
 
 y_pred = model.predict(X_test) 
 print("\nAccuracy:", accuracy_score(y_test, y_pred))
-
-print("\nClassification Report:")
-print(classification_report(y_test, y_pred))
