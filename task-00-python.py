@@ -6,14 +6,21 @@ from typing import List
 
 # 1) The elements that can be found in both lists
 def find_elements_in_both_lists(a: List[int], b: List[int]) -> List[int]:
-    # write your code here
-    return []
+    res = []
+    for elem in a:
+        if elem in b and elem not in res:
+            res.append(elem)
+    print(res)
+    return res
 
 # 2) The elements only found in list B
 def find_elements_in_second_list(a: List[int], b: List[int]) -> List[int]:
-    # write your code here
-    return []
-
+    res = []
+    for elem in b:
+        if elem not in a and elem not in res:
+            res.append(elem)
+    print(res)
+    return res
 
 if __name__ == "__main__":
     a = [1, 3, 4, 6, 8, 3, 13]
